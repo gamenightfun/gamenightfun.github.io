@@ -241,10 +241,13 @@ class Game {
         }
 
         // check maxturns vs turn -allow user to do something and have boolean end turn condition
-        if (this.turn  < this.maxTurn) {
-            document.querySelector('.gameInfo').style.backgroundColor = 'orange';
+        if (this.turn  <= this.maxTurn) {
+            // document.querySelector('.gameInfo').style.backgroundColor = 'orange';
             document.querySelector('.gameInfo').style.width = '100vw';
             document.querySelector('.gameInfo').style.fontSize = '5vw';
+            document.querySelector('.gameInfo').style.zIndex = '5';
+            document.querySelector('.gameInfo').style.textAlign = 'center';
+            document.querySelector('.gameInfo').style.color = 'white';
             document.querySelector('.gameInfo').innerText = `${this.players[this.dealer].name} turn - Turn ${this.turn + 1}/${this.maxTurn}`
             console.log(`${this.players[this.dealer].name} turn! ${this.turn + 1}/${this.maxTurn} ${this.players.length}${this.dealer}`)
             // setInterval(alert(`${this.players[this.dealer].name} turn! ${this.turn + 1}/${this.maxTurn}`), 3000)
@@ -315,7 +318,7 @@ class Game {
     }
     playerTurn() {
 
-        if (this.turn === this.maxTurn) {
+        if (this.turn === this.maxTurn-1) {
             alert('LAST TURN')
 
             // break;
@@ -449,6 +452,7 @@ class Game {
         gameTable.innerHTML = ''
         gameMenu.innerHTML = ''
         mainDeck.activeDeck = false;
+        document.querySelector('.titleSection').style.display = 'block';
         if (prompt('Wanna play again') === 'y') {
 
             let newDeck = new Deck()
@@ -459,6 +463,8 @@ class Game {
             alert('Game Over')
 
         }
+        document.querySelector('body').style.backgroundImage = ''
+        document.querySelector('.overlay').removeChild(document.querySelector('.titleOfGame'))
     }
 
 }
@@ -481,8 +487,8 @@ deckBtn.addEventListener('click', (event) => {
         
         //set game setup to display none
         gameSettings.style.display = 'none';
-        gameTable.style.height ='120%';
-        gameTable.style.width = '100%';
+        gameTable.style.height ='120vh';
+        gameTable.style.width = '100vw';
         gameTable.style.position = 'relative'
         
 
@@ -512,10 +518,27 @@ deckBtn.addEventListener('click', (event) => {
 dealBtn.addEventListener('click', (event) => {
     // console.log(totalCardsSelector.value, totalHandsSelector.value)
     mainDeck = new Deck();
-    mainDeck.createDeck()
-
-    mainDeck.randomizeDeck()
-    alert('Deck created! Click the deck to deal the cards. ')
+    mainDeck.createDeck();
+    document.querySelector('.titleSection').style.display = 'none';
+    mainDeck.randomizeDeck();
+    alert('Deck created! Click the deck to deal the cards. ');
+    document.querySelector('body').style.backgroundImage = 'url("https://media.tenor.com/Ukj7DL_GKBkAAAAM/bingus-war.gif")'
+    document.querySelector('body').style.backgroundRepeat = 'no-repeat';
+    document.querySelector('body').style.backgroundSize = 'cover';
+    let titleOfGame = document.createElement('div');
+    titleOfGame.classList.add('titleOfGame')
+    titleOfGame.zIndex = 6;
+    titleOfGame.textContent = `${gameSelector.value.toUpperCase()}`
+    titleOfGame.style.position = 'absolute';
+    titleOfGame.style.top = '0%';
+    titleOfGame.style.right = '0%'
+    titleOfGame.style.color = 'red';
+    titleOfGame.style.fontSize = '10vw';
+    
+    document.querySelector('.overlay').appendChild(titleOfGame)
+    // document.querySelector('body').zIndex = 0;
+    
+    
     let cardBackChosen = cardBackImg.value
             
             // console.log(cardBackChosen)
@@ -619,7 +642,7 @@ gameTable.addEventListener('click', (event) => {
             endTurn.style.display = 'none';
 
             
-            gameInfo.innerText = 'Player Turn';
+            // gameInfo.innerText = 'Player Turn';
             gameInfo.style.position = 'relative';
             gameInfo.style.top = '0%';
             // gameInfo.style.left = '40%';
