@@ -1,6 +1,6 @@
 const gameList = ['war'];
 const cardBackImages = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMnbeDidOb-268gpwvuinNGng20ifBX4FVy3_oAjXb&s','backs/abstract_scene.svg','backs/abstract.svg','backs/astronaut.svg'];
-
+const PLAYERFACES = ['playerfaces/frank.png','playerfaces/tieran.png','playerfaces/eric.png','playerfaces/scar.png','playerfaces/rhianna.png','playerfaces/miketyson.png']
 const number = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'];
 const suits = ['C', 'S', 'H', 'D'];
 const deckBtn = document.querySelector('.getDeck');
@@ -687,9 +687,10 @@ gameTable.addEventListener('click', (event) => {
             //get the list of users to add to the deck class and keep track of turns
             let userProfiles = [];
             //create each users hand container 
+            
             for (let hand of hands) {
                 let userHandList = [];
-
+                let c = Math.floor(Math.random() * totalPlayers)
                 let handContainer = document.createElement('div');
                 // handContainer.style.backgroundColor = 'green'
                 let playerTag = document.createElement('p');
@@ -701,13 +702,21 @@ gameTable.addEventListener('click', (event) => {
                 playerShowHands.style.bottom = '10%';
                 playerShowHands.style.left = '5%';
                 playerShowHands.style.zIndex = 4
-                playerTag.innerHTML = `Player${count + 1}`;
+                playerTag.innerText = `${count + 1}`;
+                playerTag.style.height = '20vh';
+                playerTag.style.width = '50vw';
+                playerTag.style.color = 'white';
                 
                 playerTag.zIndex = '3'
-                playerTag.style.backgroundColor = 'white';
+                // playerTag.style.backgroundColor = 'white';
+                playerTag.style.backgroundImage = `url(${PLAYERFACES[c]})`
+                playerTag.style.backgroundRepeat = 'no-repeat'
+                playerTag.style.backgroundSize = 'contain'
+                playerTag.style.backgroundPosition = 'center'
 
+                c++
                 playerTag.style.marginTop = '40%';
-                playerTag.style.height = "20%";
+                playerTag.style.height = "50%";
                 playerTag.style.visibility = 'visible';
                 playerTag.style.borderRadius = '25%'
                 // playerTag.style.gridRow = `${count}/${count + 1}`;
