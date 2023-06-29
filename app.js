@@ -700,7 +700,7 @@ gameTable.addEventListener('click', (event) => {
                 let c = Math.floor(Math.random() * totalPlayers)
                 let handContainer = document.createElement('div');
                 // handContainer.style.backgroundColor = 'green'
-                let playerTag = document.createElement('p');
+                let playerTag = document.createElement('img');
 
                 let playerShowHands = document.createElement('button');
                 playerShowHands.textContent = `Player${count + 1} Hand`;
@@ -710,20 +710,25 @@ gameTable.addEventListener('click', (event) => {
                 playerShowHands.style.left = '5%';
                 playerShowHands.style.zIndex = 4
                 playerTag.innerText = `${count + 1}`;
-                playerTag.style.height = '20vh';
-                playerTag.style.width = '50vw';
+                
+                
                 playerTag.style.color = 'white';
                 
-                playerTag.zIndex = '3'
+                playerTag.zIndex = '8'
+                playerTag.setAttribute('src',PLAYERFACES[c])
+                playerTag.style.height = '15vh'
+                playerTag.style.width = '15vw';
+                playerTag.style.right = '-5%'
+                playerTag.style.top = '-40%'
                 // playerTag.style.backgroundColor = 'white';
-                playerTag.style.backgroundImage = `url(${PLAYERFACES[c]})`
-                playerTag.style.backgroundRepeat = 'no-repeat'
-                playerTag.style.backgroundSize = 'contain'
-                playerTag.style.backgroundPosition = 'center'
+                // playerTag.style.backgroundImage = `url(${PLAYERFACES[c]})`
+                // playerTag.style.backgroundRepeat = 'no-repeat'
+                // playerTag.style.backgroundSize = 'contain'
+                // playerTag.style.backgroundPosition = 'center'
 
                 c++
-                playerTag.style.marginTop = '40%';
-                playerTag.style.height = "50%";
+                
+                
                 playerTag.style.visibility = 'visible';
                 playerTag.style.borderRadius = '25%'
                 // playerTag.style.gridRow = `${count}/${count + 1}`;
@@ -736,13 +741,14 @@ gameTable.addEventListener('click', (event) => {
 
                 userProfiles.push(playerShowHands.value);
                 
-                handContainer.style.width = '20vw';
+                handContainer.style.width = '10vw';
                 handContainer.style.height = '20vh';
-                handContainer.style.marginRight = '40%';
+                handContainer.style.marginLeft = '30%';
+                handContainer.style.top = '30%';
                 handContainer.style.display = 'flex';
                 handContainer.style.flexDirection = 'row';
                 handContainer.style.alignContent = 'center';
-                handContainer.style.justifyContent = 'space-evenly';
+                handContainer.style.justifyContent = 'space-around';
                 
                 handContainer.style.zIndex = '2';
                 
@@ -781,9 +787,11 @@ gameTable.addEventListener('click', (event) => {
                     cardVal.setAttribute('src', cardBImg)
                     userHandList.push(cards.mainValue)
 
-                    cardVal.style.height = '15vh';
-                    cardVal.style.width = '15vw';
+                    cardVal.style.height = '10vh';
+                    cardVal.style.width = '5vw';
+                    cardVal.style.bottom = '0%'
                     cardVal.style.position = 'relative'
+                    
                     handContainer.appendChild(cardVal)
 
                 }
