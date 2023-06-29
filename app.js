@@ -357,15 +357,15 @@ class Game {
         switch (highestValue) {
             case 14:
                 highestValue = "Ace";
-                setalert(`${winnerName} won with a ${highestValue}`)
+                
                 break;
             case 13:
                 highestValue = "King";
-                alert(`${winnerName} won with a ${highestValue}`)
+               
                 break;
             case 12:
                 highestValue = "Queen";
-                alert(`${winnerName} won with a ${highestValue}`)
+               
                 break;
             case 11:
                 highestValue = "Jack";
@@ -598,7 +598,7 @@ gameTable.addEventListener('click', (event) => {
             mainDeck.activeDeck = true;
             
             let totalPlayers = parseInt(prompt("How many players?"))
-            if(totalPlayers <= 6){
+            if(totalPlayers <= 6 && totalPlayers > 1){
 
                 let hands = mainDeck.deal(totalPlayers, Math.floor(mainDeck.deckLen() / totalPlayers));// 
             let count = 0;
