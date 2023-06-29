@@ -1,5 +1,5 @@
 const gameList = ['war'];
-const cardBackImages = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMnbeDidOb-268gpwvuinNGng20ifBX4FVy3_oAjXb&s','backs/abstract_scene.svg','backs/abstract.svg','backs/astronaut.svg'];
+const cardBackImages = ['backs/abstract_scene.svg','backs/abstract.svg','backs/astronaut.svg','backs/fish.svg','backs/castle.svg'];
 const PLAYERFACES = ['playerfaces/frank.png','playerfaces/tieran.png','playerfaces/eric.png','playerfaces/scar.png','playerfaces/rhianna.png','playerfaces/miketyson.png']
 const number = ['A', 'K', 'Q', 'J', '10', '9', '8', '7', '6', '5', '4', '3', '2'];
 const suits = ['C', 'S', 'H', 'D'];
@@ -391,7 +391,7 @@ class Game {
                 this.playField = []
                 for (let cardImges of cardPlayed) {
                     // console.log(cardImges)
-                    cardImges.setAttribute('src', 'cards/RED_BACK.svg')
+                    cardImges.setAttribute('src', cardBImg)
                     cardImges.style.height = '15vh'
                     cardImges.style.width = '15vw'
                     cardImges.style.marginTop = '0'
@@ -545,16 +545,23 @@ dealBtn.addEventListener('click', (event) => {
             switch(cardBackChosen){
                 case 'back1':
                     cardBImg = cardBackImages[0];
+                    break
                 case 'back2':
                     cardBImg = cardBackImages[1];
-                case 'back2':
+                    break
+                case 'back3':
                     cardBImg = cardBackImages[2];
+                    break
                 case 'back4':
                     cardBImg = cardBackImages[3];
-                // case 'back5':
-                //     cardBImg = cardBackImages[4];
+                    break;
+                case 'back5':
+                    cardBImg = cardBackImages[4];
+                    break;
+                
                 default:
                     cardBImg = 'cards/RED_BACK.svg';
+                    break;
                 
 
             }
@@ -569,7 +576,7 @@ dealBtn.addEventListener('click', (event) => {
     deckButton.style.left = '5%';
     const deckImage = document.createElement('img');
     deckImage.classList.add('deckImage');
-    deckImage.setAttribute('src', 'cards/RED_BACK.svg')
+    deckImage.setAttribute('src', cardBImg)
     deckImage.style.height = '25vh';
     deckImage.style.width = '10vw';
 
