@@ -293,7 +293,7 @@ class Game {
                 }
                 // console.log(this.players)
                 this.score()
-                this.roundStart += 1;
+                this.roundStart += 1
                 this.dealer = 0;
 
             }
@@ -357,7 +357,7 @@ class Game {
         switch (highestValue) {
             case 14:
                 highestValue = "Ace";
-                alert(`${winnerName} won with a ${highestValue}`)
+                setalert(`${winnerName} won with a ${highestValue}`)
                 break;
             case 13:
                 highestValue = "King";
@@ -369,13 +369,15 @@ class Game {
                 break;
             case 11:
                 highestValue = "Jack";
-                alert(`${winnerName} won with a ${highestValue}`)
+                
                 break;
             default:
-                alert(`${winnerName} won with a ${highestValue}`)
+                highestValue = highestValue
+                break;
 
         }
 
+        alert(`${winnerName} won with a ${highestValue}`)
         for (let userH of this.players) {
 
 
@@ -392,8 +394,8 @@ class Game {
                 for (let cardImges of cardPlayed) {
                     // console.log(cardImges)
                     cardImges.setAttribute('src', cardBImg)
-                    cardImges.style.height = '15vh'
-                    cardImges.style.width = '15vw'
+                    cardImges.style.height = '10vh'
+                    cardImges.style.width = '5vw'
                     cardImges.style.marginTop = '0'
                     winningClass.appendChild(cardImges)
                     cardPlayed = []
@@ -452,7 +454,7 @@ class Game {
         gameTable.innerHTML = ''
         gameMenu.innerHTML = ''
         mainDeck.activeDeck = false;
-        document.querySelector('.titleSection').style.display = 'block';
+        
         if (prompt('Wanna play again') === 'y') {
 
             let newDeck = new Deck()
@@ -465,6 +467,7 @@ class Game {
         }
         document.querySelector('body').style.backgroundImage = ''
         document.querySelector('.overlay').removeChild(document.querySelector('.titleOfGame'))
+        document.querySelector('.titleSection').style.display = 'block';
     }
 
 }
@@ -498,16 +501,12 @@ deckBtn.addEventListener('click', (event) => {
     // when we first click the deal button it will set the deal btn display to none 
     //here is to reset everything back to start
     else {
-        dealBtn.style.display = '';
-        deckBtn.textContent = 'Start'
-        gameTable.innerHTML = ''
-        gameMenu.innerHTML = ''
-        mainDeck.activeDeck = false;
-        //set back to default
-        gameSettings.style.display = 'block';
+        
+        location.reload()
 
 
     }
+    
 
 
 
@@ -599,9 +598,9 @@ gameTable.addEventListener('click', (event) => {
             mainDeck.activeDeck = true;
             
             let totalPlayers = parseInt(prompt("How many players?"))
-            console.log(totalPlayers)
-            console.log(Math.floor(mainDeck.deckLen() / totalPlayers))
-            let hands = mainDeck.deal(totalPlayers, Math.floor(mainDeck.deckLen() / totalPlayers));// 
+            if(totalPlayers <= 6){
+
+                let hands = mainDeck.deal(totalPlayers, Math.floor(mainDeck.deckLen() / totalPlayers));// 
             let count = 0;
             //gameboard created 
             const gameBoard = document.createElement('div');
@@ -809,6 +808,12 @@ gameTable.addEventListener('click', (event) => {
             //add the gameBoard to the gameTable
             gameTable.appendChild(gameBoard)
             mainDeck.users = userProfiles;
+            }
+            else{
+                alert('Thats too many players')
+                location.reload()
+            }
+            
 
         }
         //if we are currently still playing with current deck 
@@ -841,8 +846,8 @@ gameTable.addEventListener('click', (event) => {
                             let cardSelected = event.target.parentNode.removeChild(event.target)
                             cardPicked = cardSelected
                             // console.log(document.querySelector('.playArea'))
-                            cardSelected.style.height = '25%';
-                            cardSelected.style.width = '18%';
+                            cardSelected.style.height = '15vh';
+                            cardSelected.style.width = '10vw';
                             cardSelected.style.marginTop = '10%'
                             document.querySelector('.playArea').appendChild(cardSelected)
 
