@@ -30,7 +30,7 @@
 
 1. Select the card game you want to play. The image of the back of the card you want to play with and click start
 
-1. Click the grab deck button to grab a deck. Enter player number **2-6** players. Players are delt ***EQUALLY*** all 52 cards evenly. 
+1. Click the grab deck button to grab a deck. Click the deck you will be prompted enter player number **2-6** players. Players are delt ***EQUALLY*** all 52 cards evenly. 
 
 1. Players go turn by turn. Hands are not shown by default in order to see your hand  click the show hand and pick a card. ***HIGHEST CARD WINS AND TAKES ALL THE CARDS*** 
 
