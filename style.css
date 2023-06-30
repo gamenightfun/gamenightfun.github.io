@@ -1,6 +1,16 @@
+body{
+    margin: auto;
+    padding: auto;
+    background-color: rgba(3, 44, 13, 0.799);
+    text-decoration: solid;
+    color: rgb(255, 157, 0)
+}
+
+
 .overlay{
     position: relative;
     text-align: center;
+    
 }
 body{
     position: relative;

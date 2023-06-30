@@ -247,7 +247,7 @@ class Game {
             document.querySelector('.gameInfo').style.fontSize = '5vw';
             document.querySelector('.gameInfo').style.zIndex = '5';
             document.querySelector('.gameInfo').style.textAlign = 'center';
-            document.querySelector('.gameInfo').style.color = 'white';
+            document.querySelector('.gameInfo').style.color = 'rgb(255, 157, 0)';
             document.querySelector('.gameInfo').innerText = `${this.players[this.dealer].name} turn - Turn ${this.turn + 1}/${this.maxTurn}`
             console.log(`${this.players[this.dealer].name} turn! ${this.turn + 1}/${this.maxTurn} ${this.players.length}${this.dealer}`)
             // setInterval(alert(`${this.players[this.dealer].name} turn! ${this.turn + 1}/${this.maxTurn}`), 3000)
@@ -263,6 +263,7 @@ class Game {
 
     }
     endTurn() {
+        
         //turn of hand vidibilty 
         let handVis = `.${this.players[this.dealer].name}`
         document.querySelector(handVis).style.visibility = 'hidden'
@@ -291,7 +292,7 @@ class Game {
                         }
                     }
                 }
-                // console.log(this.players)
+                
                 this.score()
                 this.roundStart += 1
                 this.dealer = 0;
@@ -336,7 +337,7 @@ class Game {
         let winnerName = ''
         let cardPlayed = []
 
-
+        
         //push card value to array list of cards played
 
         // //remove the card from the players hand
@@ -377,7 +378,7 @@ class Game {
 
         }
 
-        alert(`${winnerName} won with a ${highestValue}`)
+        
         for (let userH of this.players) {
 
 
@@ -391,6 +392,7 @@ class Game {
 
                 }
                 this.playField = []
+                
                 for (let cardImges of cardPlayed) {
                     // console.log(cardImges)
                     cardImges.setAttribute('src', cardBImg)
@@ -424,7 +426,7 @@ class Game {
 
 
         }
-        
+        alert(`${winnerName} won with a ${highestValue}`)
         
 
 
@@ -523,9 +525,12 @@ dealBtn.addEventListener('click', (event) => {
     document.querySelector('.titleSection').style.display = 'none';
     mainDeck.randomizeDeck();
     alert('Deck created! Click the deck to deal the cards. ');
-    document.querySelector('body').style.backgroundImage = 'url("https://media.tenor.com/Ukj7DL_GKBkAAAAM/bingus-war.gif")'
-    document.querySelector('body').style.backgroundRepeat = 'no-repeat';
+    document.querySelector('body').style.backgroundImage = 'url("https://y.yarn.co/1ab19cf2-f88e-4229-b5e7-d7f421b5b397_text.gif")'
+    // document.querySelector('body').style.backgroundRepeat = 'no-repeat';
     document.querySelector('body').style.backgroundSize = 'cover';
+    // document.querySelector('body').style.paddingTop = '-20%';
+    document.querySelector('body').style.backgroundPosition = 'center';
+    // document.querySelector('body').style.width = '100%';
     let titleOfGame = document.createElement('div');
     titleOfGame.classList.add('titleOfGame')
     titleOfGame.zIndex = 6;
@@ -854,7 +859,7 @@ gameTable.addEventListener('click', (event) => {
                             // console.log(document.querySelector('.playArea'))
                             cardSelected.style.height = '15vh';
                             cardSelected.style.width = '10vw';
-                            cardSelected.style.marginTop = '10%'
+                            cardSelected.style.marginTop = '5%'
                             document.querySelector('.playArea').appendChild(cardSelected)
 
                             game.endTurn();
