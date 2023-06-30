@@ -518,6 +518,7 @@ dealBtn.addEventListener('click', (event) => {
     // console.log(totalCardsSelector.value, totalHandsSelector.value)
     mainDeck = new Deck();
     mainDeck.createDeck();
+    
     document.querySelector('.titleSection').style.display = 'none';
     mainDeck.randomizeDeck();
     alert('Deck created! Click the deck to deal the cards. ');
@@ -605,7 +606,11 @@ gameTable.addEventListener('click', (event) => {
             //gameboard created 
             const gameBoard = document.createElement('div');
             // cardContainer.classList.add('hand', 'hhand-compact', 'active-hand')
-            gameBoard.style.backgroundColor = 'green';
+            // gameBoard.style.backgroundColor = 'green';
+            gameBoard.style.backgroundImage = `url('https://www.pokerproductos.com/WebRoot/StoreES/Shops/61976209/5A06/296F/4831/BCCC/A6A9/0A0C/6D0A/F448/mesa_de_poker_oval_verde_1.png')`;
+            gameBoard.style.backgroundRepeat = 'no-repeat';
+            gameBoard.style.backgroundPosition = 'center';
+            gameBoard.style.backgroundSize = 'cover'
             gameBoard.style.width = '70vw';
             gameBoard.style.height = '80vh';
             gameBoard.style.borderRadius = '30%';
@@ -621,7 +626,7 @@ gameTable.addEventListener('click', (event) => {
             gameBoard.classList.add('gameBoard');
 
             let playArea = document.createElement('div');
-            playArea.style.backgroundColor = 'red';
+            // playArea.style.backgroundColor = 'red';
             playArea.style.position = 'absolute';
             playArea.style.zIndex = '1';
             playArea.style.top = '25%';
