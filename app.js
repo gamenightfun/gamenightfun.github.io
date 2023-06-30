@@ -468,6 +468,7 @@ class Game {
         document.querySelector('body').style.backgroundImage = ''
         document.querySelector('.overlay').removeChild(document.querySelector('.titleOfGame'))
         document.querySelector('.titleSection').style.display = 'block';
+        location.reload()
     }
 
 }
